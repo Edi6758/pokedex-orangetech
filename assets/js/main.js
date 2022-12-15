@@ -21,9 +21,13 @@ const pokemonList = document.getElementById('pokemonList')
 
 pokeApi.getPokemons()
     .then((pokemons) => {
+        const listItems = []
+
         for (let i = 0; i < pokemons.length; i++) {
             const pokemon = pokemons[i];
-            pokemonList.innerHTML += convertPokemonLi(pokemon)
+            listItems.push(convertPokemonLi(pokemon))
         }
+
+        console.log(listItems)
     })
     .catch((error) => console.error(error))
